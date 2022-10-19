@@ -1,0 +1,85 @@
+import { View, Text, StyleSheet, FlatList } from "react-native";
+import restaurants from "../../../assets/data/restaurants.json";
+import { AntDesign } from "@expo/vector-icons";
+import { useState } from "react";
+const dishes = restaurants[0].dishes;
+
+const BasketScreen = () => {
+	const BasketDishItem = ({ basketDish }) => {
+		return (
+			<View style={styles.row}>
+				<View style={styles.quantityContainer}>
+					<Text>1</Text>
+				</View>
+				<Text style={{ fontWeight: "600" }}>{basketDish.name}</Text>
+				<Text style={{ marginLeft: "auto" }}>${basketDish.price}</Text>
+			</View>
+		);
+	};
+	return (
+		<View style={styles.page}>
+			<Text style={styles.name}>{restaurants[0].name}</Text>
+			<Text style={styles.description}>Your Items</Text>
+
+			<FlatList
+				data={dishes}
+				renderItem={({ item }) => <BasketDishItem basketDish={item} />}
+			/>
+
+			<View style={styles.separator} />
+
+			<View style={styles.button}>
+				<Text style={styles.buttonText}>Create Order</Text>
+			</View>
+		</View>
+	);
+};
+
+const styles = StyleSheet.create({
+	page: { flex: 1, width: "100%", paddingVertical: 30, padding: 10 },
+
+	name: {
+		fontSize: 30,
+		fontWeight: "600",
+		marginVertical: 10,
+	},
+	description: {
+		color: "gray",
+		fontWeight: "bold",
+		fontSize: 19,
+	},
+	separator: {
+		height: 1,
+		backgroundColor: "lightgrey",
+		marginVertical: 10,
+	},
+
+	row: {
+		alignItems: "center",
+		flexDirection: "row",
+		marginVertical: 15,
+	},
+
+	quantityContainer: {
+		backgroundColor: "lightgray",
+		paddingHorizontal: 5,
+		paddingVertical: 2,
+		borderRadius: 3,
+		marginRight: 10,
+	},
+
+	button: {
+		backgroundColor: "black",
+		marginTop: "auto",
+		padding: 20,
+		alignItems: "center",
+	},
+
+	buttonText: {
+		color: "white",
+		fontWeight: 600,
+		fontSize: 20,
+	},
+});
+
+export default BasketScreen;
