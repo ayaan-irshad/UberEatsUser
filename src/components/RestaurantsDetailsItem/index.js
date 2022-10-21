@@ -1,8 +1,13 @@
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
-
+import { useNavigation } from "@react-navigation/native";
 function RestaurantDetailsItem({ item: { name, description, price, image } }) {
+	const navigation = useNavigation();
+	const handlePress = () => {
+		navigation.navigate("Dish");
+	};
+
 	return (
-		<View style={styles.container}>
+		<Pressable style={styles.container} onPress={handlePress}>
 			<View style={{ flex: 1 }}>
 				<Text style={styles.name}>{name}</Text>
 				<Text style={styles.description} numberOfLines={2}>
@@ -11,7 +16,7 @@ function RestaurantDetailsItem({ item: { name, description, price, image } }) {
 				<Text style={styles.price}>${price}</Text>
 			</View>
 			{image && <Image style={styles.image} source={{ uri: image }} />}
-		</View>
+		</Pressable>
 	);
 }
 

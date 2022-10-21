@@ -1,0 +1,48 @@
+import { View, Text, TextInput, StyleSheet, Button, Alert } from "react-native";
+import React, { useEffect, useState } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Auth, DataStore } from "aws-amplify";
+// import { User } from "../../models";
+// import { useAuthContext } from "../../contexts/AuthContext";
+import { useNavigation } from "@react-navigation/native";
+
+const Profile = () => {
+	return (
+		<SafeAreaView>
+			<Text style={styles.title}>Profile</Text>
+			<TextInput value={"name"} placeholder="Name" style={styles.input} />
+			<TextInput value={"adress"} placeholder="Address" style={styles.input} />
+			<TextInput
+				value={"lat"}
+				placeholder="Latitude"
+				style={styles.input}
+				keyboardType="numeric"
+			/>
+			<TextInput value={"long"} placeholder="Longitude" style={styles.input} />
+			<Button onPress={null} title="Save" />
+			<Text
+				onPress={() => Auth.signOut()}
+				style={{ textAlign: "center", color: "red", margin: 10 }}
+			>
+				Sign out
+			</Text>
+		</SafeAreaView>
+	);
+};
+
+const styles = StyleSheet.create({
+	title: {
+		fontSize: 30,
+		fontWeight: "bold",
+		textAlign: "center",
+		margin: 10,
+	},
+	input: {
+		margin: 10,
+		backgroundColor: "white",
+		padding: 15,
+		borderRadius: 5,
+	},
+});
+
+export default Profile;

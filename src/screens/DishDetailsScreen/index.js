@@ -1,9 +1,12 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import restaurants from "../../../assets/data/restaurants.json";
 import { AntDesign } from "@expo/vector-icons";
 import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+
 const dish = restaurants[0].dishes[0];
 const DishDetailsScreen = () => {
+	const navigation = useNavigation();
 	const [quantity, setQuantity] = useState(1);
 
 	const onMinus = () => {
@@ -42,11 +45,14 @@ const DishDetailsScreen = () => {
 				/>
 			</View>
 
-			<View style={styles.button}>
+			<Pressable
+				onPress={() => navigation.navigate("Basket")}
+				style={styles.button}
+			>
 				<Text style={styles.buttonText}>
 					Add {quantity} to basket &#8226; ${getTotal()}
 				</Text>
-			</View>
+			</Pressable>
 		</View>
 	);
 };
@@ -90,7 +96,7 @@ const styles = StyleSheet.create({
 
 	buttonText: {
 		color: "white",
-		fontWeight: 600,
+		fontWeight: "600",
 		fontSize: 20,
 	},
 });
