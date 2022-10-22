@@ -1,9 +1,12 @@
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-function RestaurantDetailsItem({ item: { name, description, price, image } }) {
+import { useRoute, useNavigation } from "@react-navigation/native";
+function RestaurantDetailsItem({
+	item: { id, name, description, price, image },
+}) {
 	const navigation = useNavigation();
+
 	const handlePress = () => {
-		navigation.navigate("Dish");
+		navigation.navigate("Dish", { itemId: id });
 	};
 
 	return (
