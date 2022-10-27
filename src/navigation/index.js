@@ -9,13 +9,19 @@ import OrdersScreen from "../screens/OrdersScreen";
 import OrderDetailsScreen from "../screens/OrderDetailsScreen";
 import Profile from "../screens/ProfileScreen";
 import { Entypo, MaterialCommunityIcons } from "@expo/vector-icons";
-
+import { useAuthContext } from "../context/AuthContext";
 const Stack = createNativeStackNavigator();
 
 const RootNavigator = () => {
+	const { dbUser } = useAuthContext();
+
 	return (
 		<Stack.Navigator screenOptions={{ headerShown: false }}>
-			<Stack.Screen name="HomeTabs" component={HomeTabs} />
+			{dbUser ? (
+				<Stack.Screen name="HomeTabs" component={HomeTabs} />
+			) : (
+				<Stack.Screen name="ProfileTab" component={Profile} />
+			)}
 		</Stack.Navigator>
 	);
 };
