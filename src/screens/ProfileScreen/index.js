@@ -20,7 +20,7 @@ const Profile = () => {
 				name,
 				address,
 				lat: parseFloat(lat),
-				lat: parseFloat(lat),
+				lng: parseFloat(lng),
 				sub,
 			})
 		);
@@ -28,15 +28,32 @@ const Profile = () => {
 	return (
 		<SafeAreaView>
 			<Text style={styles.title}>Profile</Text>
-			<TextInput value={"name"} placeholder="Name" style={styles.input} />
-			<TextInput value={"adress"} placeholder="Address" style={styles.input} />
 			<TextInput
-				value={"lat"}
+				value={name}
+				onChangeText={setName}
+				placeholder="Name"
+				style={styles.input}
+			/>
+			<TextInput
+				value={address}
+				onChangeText={setAddress}
+				placeholder="Address"
+				style={styles.input}
+			/>
+
+			<TextInput
+				value={lat}
+				onChangeText={setLat}
 				placeholder="Latitude"
 				style={styles.input}
 				keyboardType="numeric"
 			/>
-			<TextInput value={"long"} placeholder="Longitude" style={styles.input} />
+			<TextInput
+				value={lng}
+				onChangeText={setLng}
+				placeholder="Longitude"
+				style={styles.input}
+			/>
 			<Button onPress={onSave} title="Save" />
 			<Text
 				onPress={() => Auth.signOut()}
