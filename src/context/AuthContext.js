@@ -18,7 +18,7 @@ const AuthContextProvider = ({ children }) => {
 	console.log(sub);
 
 	return (
-		<AuthContext.Provider value={{ dbUser, authUser, sub }}>
+		<AuthContext.Provider value={{ dbUser, authUser, sub, setDbUser }}>
 			{children}
 		</AuthContext.Provider>
 	);

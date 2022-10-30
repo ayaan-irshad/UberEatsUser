@@ -12,18 +12,24 @@ const Profile = () => {
 	const [lat, setLat] = useState("0");
 	const [lng, setLng] = useState("0");
 
-	const { sub } = useAuthContext();
+	const { sub, setDbUser } = useAuthContext();
 
-	const onSave = () => {
-		DataStore.save(
-			new User({
-				name,
-				address,
-				lat: parseFloat(lat),
-				lng: parseFloat(lng),
-				sub,
-			})
-		);
+	const onSave = async () => {
+		try {
+			const user = await DataStore.save(
+				new User({
+					name,
+					address,
+					lat: parseFloat(lat),
+					lng: parseFloat(lng),
+					sub,
+				})
+			);
+			console.log(user);
+			setDbUser(user);
+		} catch (e) {
+			Alert.alert("Error", e.message);
+		}
 	};
 	return (
 		<SafeAreaView>
