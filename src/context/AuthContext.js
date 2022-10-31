@@ -11,11 +11,11 @@ const AuthContextProvider = ({ children }) => {
 		Auth.currentAuthenticatedUser({ bypassCache: true }).then(setAuthUser);
 	}, []);
 
-	useEffect(() => {
-		DataStore.query(User, (user) => user.sub("eq", sub)).then(setDbUser);
-	}, [sub]);
-	console.log(authUser);
-	console.log(sub);
+	// useEffect(() => {
+	// 	DataStore.query(User, (user) => user.sub("eq", sub)).then((users) =>
+	// 		setDbUser(users[0])
+	// 	);
+	// }, [sub]);
 
 	return (
 		<AuthContext.Provider value={{ dbUser, authUser, sub, setDbUser }}>

@@ -4,7 +4,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Auth, DataStore } from "aws-amplify";
 import { User } from "../../models";
 import { useAuthContext } from "../../context/AuthContext";
-import { useNavigation } from "@react-navigation/native";
 
 const Profile = () => {
 	const [name, setName] = useState("");
