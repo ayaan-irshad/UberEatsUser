@@ -1,9 +1,13 @@
 import { View, Text, StyleSheet, FlatList } from "react-native";
 import restaurants from "../../../assets/data/restaurants.json";
 import BasketDishItem from "../../components/BasketDishItem";
+import { useBasketContext } from "../../contexts/BasketContext";
+
 const dishes = restaurants[0].dishes;
 
 const BasketScreen = () => {
+	const { restaurant, basketDishes, totalPrice } = useBasketContext();
+
 	return (
 		<View style={styles.page}>
 			<Text style={styles.name}>{restaurants[0].name}</Text>
