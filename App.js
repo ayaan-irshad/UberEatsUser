@@ -6,6 +6,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { Amplify, Auth } from "aws-amplify";
 import { withAuthenticator } from "aws-amplify-react-native";
 import config from "./src/aws-exports";
+import BasketContextProvider from "./src/contexts/BasketContext";
+
 import AuthContextProvider from "./src/context/AuthContext";
 
 Amplify.configure({
@@ -19,7 +21,9 @@ function App() {
 	return (
 		<NavigationContainer>
 			<AuthContextProvider>
-				<RootNavigator />
+				<BasketContextProvider>
+					<RootNavigator />
+				</BasketContextProvider>
 			</AuthContextProvider>
 			<StatusBar style="auto" />
 		</NavigationContainer>
