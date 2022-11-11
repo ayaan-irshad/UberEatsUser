@@ -2,11 +2,21 @@ import { View, Text, StyleSheet, FlatList } from "react-native";
 import restaurants from "../../../assets/data/restaurants.json";
 import BasketDishItem from "../../components/BasketDishItem";
 import { useBasketContext } from "../../contexts/BasketContext";
+import { useOrderContext } from "../../contexts/OrderContext";
 
 const dishes = restaurants[0].dishes;
 
 const BasketScreen = () => {
 	const { restaurant, basketDishes, totalPrice } = useBasketContext();
+	const { createOrder } = useOrderContext();
+
+	const onCreateOrder = async () => {
+		const newOrder = await createOrder();
+		navigation.navigate("OrdersTab", {
+			screen: "Order",
+			params: { id: newOrder.id },
+		});
+	};
 
 	return (
 		<View style={styles.page}>
