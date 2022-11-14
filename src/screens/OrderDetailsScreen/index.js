@@ -3,6 +3,8 @@ import orders from "../../../assets/data/orders.json";
 import restaurants from "../../../assets/data/restaurants.json";
 import BasketDishItem from "../../components/BasketDishItem";
 import styles from "./styles";
+import { useOrderContext } from "../../contexts/OrderContext";
+import { useEffect, useState } from "react";
 
 const OrderDetailsHeader = () => {
 	const [order] = orders;
@@ -33,5 +35,25 @@ const OrderDetailsScreen = () => {
 		/>
 	);
 };
+
+// const OrderDetails = ({ id }) => {
+// 	const [order, setOrder] = useState();
+// 	const { getOrder } = useOrderContext();
+
+// 	useEffect(() => {
+// 	  getOrder(id).then(setOrder);
+// 	}, []);
+
+// 	if (!order) {
+// 	  return <ActivityIndicator size={"large"} color="gray" />;
+// 	}
+
+// 	return (
+// 	  <FlatList
+// 		ListHeaderComponent={() => <OrderDetailsHeader order={order} />}
+// 		data={order.dishes}
+// 		renderItem={({ item }) => <BasketDishItem basketDish={item} />}
+// 	  />
+// 	);
 
 export default OrderDetailsScreen;
