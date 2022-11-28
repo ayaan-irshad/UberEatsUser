@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
-import { useRoute, useNavigation } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 function RestaurantDetailsItem({
 	item: { id, name, description, price, image },
 }) {

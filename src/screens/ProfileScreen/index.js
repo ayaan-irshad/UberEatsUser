@@ -1,5 +1,5 @@
 import { View, Text, TextInput, StyleSheet, Button, Alert } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Auth, DataStore } from "aws-amplify";
 import { User } from "../../models";
