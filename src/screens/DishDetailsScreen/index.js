@@ -1,5 +1,4 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
-import restaurants from "../../../assets/data/restaurants.json";
 import { AntDesign } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
 import { useRoute, useNavigation } from "@react-navigation/native";
