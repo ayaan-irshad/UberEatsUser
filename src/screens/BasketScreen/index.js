@@ -20,19 +20,24 @@ const BasketScreen = () => {
 
 	return (
 		<View style={styles.page}>
-			<Text style={styles.name}>{restaurants[0].name}</Text>
-			<Text style={styles.description}>Your Items</Text>
+			<Text style={styles.name}>{restaurant?.name}</Text>
+
+			<Text style={{ fontWeight: "600", marginTop: 20, fontSize: 19 }}>
+				Your items
+			</Text>
 
 			<FlatList
-				data={dishes}
+				data={basketDishes}
 				renderItem={({ item }) => <BasketDishItem basketDish={item} />}
 			/>
 
 			<View style={styles.separator} />
 
-			<View style={styles.button}>
-				<Text style={styles.buttonText}>Create Order</Text>
-			</View>
+			<Pressable onPress={onCreateOrder} style={styles.button}>
+				<Text style={styles.buttonText}>
+					Create order &#8226; ${totalPrice.toFixed(2)}
+				</Text>
+			</Pressable>
 		</View>
 	);
 };
