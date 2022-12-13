@@ -32,3 +32,4 @@ function App() {
 export default withAuthenticator(App);
 
 // add expected dependencies
+// clean and refactor the code
