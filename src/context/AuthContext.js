@@ -1,7 +1,7 @@
-import { useState, createContext, useEffect, useContext } from "react";
-import { DataStore, Auth } from "aws-amplify";
-import { User } from "../models";
-const AuthContext = createContext();
+// import { useState, createContext, useEffect, useContext } from "react";
+// import { DataStore, Auth } from "aws-amplify";
+// import { User } from "../models";
+// const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
 	const [dbUser, setDbUser] = useState(null);
