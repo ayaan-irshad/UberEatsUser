@@ -1,35 +1,35 @@
-// import { StatusBar } from "expo-status-bar";
-// import RootNavigator from "./src/navigation";
-// import { NavigationContainer } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
+import RootNavigator from "./src/navigation";
+import { NavigationContainer } from "@react-navigation/native";
 
-// import { Amplify, Auth } from "aws-amplify";
-// import { withAuthenticator } from "aws-amplify-react-native";
-// import config from "./src/aws-exports";
-// import BasketContextProvider from "./src/contexts/BasketContext";
+import { Amplify, Auth } from "aws-amplify";
+import { withAuthenticator } from "aws-amplify-react-native";
+import config from "./src/aws-exports";
+import BasketContextProvider from "./src/contexts/BasketContext";
 
-// import AuthContextProvider from "./src/context/AuthContext";
+import AuthContextProvider from "./src/context/AuthContext";
 
-// Amplify.configure({
-// 	...config,
-// 	Analytics: {
-// 		disabled: true,
-// 	},
-// });
+Amplify.configure({
+	...config,
+	Analytics: {
+		disabled: true,
+	},
+});
 
-// function App() {
-// 	return (
-// 		<NavigationContainer>
-// 			<AuthContextProvider>
-// 				<BasketContextProvider>
-// 					<RootNavigator />
-// 				</BasketContextProvider>
-// 			</AuthContextProvider>
-// 			<StatusBar style="auto" />
-// 		</NavigationContainer>
-// 	);
-// }
+function App() {
+	return (
+		<NavigationContainer>
+			<AuthContextProvider>
+				<BasketContextProvider>
+					<RootNavigator />
+				</BasketContextProvider>
+			</AuthContextProvider>
+			<StatusBar style="auto" />
+		</NavigationContainer>
+	);
+}
 
-// export default withAuthenticator(App);
+export default withAuthenticator(App);
 
-// // add expected dependencies
-// // clean and refactor the code
+// add expected dependencies
+// clean and refactor the code
